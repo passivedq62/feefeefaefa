@@ -49,7 +49,12 @@
         height: 150px;
         border-radius: 50%;
         margin-bottom: 10px;
-        box-shadow: 0 0 0 3px #fff; /* White outline for profile picture */
+        /* Remove existing white outline box-shadow */
+        /* box-shadow: 0 0 0 3px #fff; */
+
+        /* Rainbow border effect */
+        border: 3px solid transparent; /* Start with a transparent border */
+        animation: rainbow-border 2s infinite linear;
     }
     .description {
         margin-top: 10px;
@@ -99,15 +104,29 @@
             opacity: 0;
         }
     }
-    /* Styles for background video */
-    .video-background {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -1;
+    /* Keyframes for rainbow border animation */
+    @keyframes rainbow-border {
+        0% {
+            border-color: red;
+        }
+        16.7% {
+            border-color: orange;
+        }
+        33.3% {
+            border-color: yellow;
+        }
+        50% {
+            border-color: green;
+        }
+        66.7% {
+            border-color: blue;
+        }
+        83.3% {
+            border-color: indigo;
+        }
+        100% {
+            border-color: violet;
+        }
     }
 </style>
 </head>
