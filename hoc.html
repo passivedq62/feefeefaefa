@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>fundtak.ing</title>
+<link href="https://fonts.googleapis.com/css2?family=Nosifer&display=swap" rel="stylesheet">
+<style>
+    /* Basic styles for layout */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #000;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+    h1 {
+        font-size: 48px;
+        text-align: center;
+        font-weight: normal;
+        font-family: 'Nosifer', cursive; /* Scary font */
+        margin-bottom: 20px;
+    }
+    .container {
+        display: flex;
+        justify-content: space-around;
+        max-width: 800px;
+        width: 100%;
+        margin-top: 30px;
+    }
+    .profile {
+        text-align: center;
+        margin: 20px;
+        background-color: #333;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 0 3px #fff, 0 4px 8px rgba(0, 0, 0, 0.2); /* White outline */
+    }
+    .profile img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        box-shadow: 0 0 0 3px #fff; /* White outline for profile picture */
+    }
+    .description {
+        margin-top: 10px;
+    }
+    .description h3 {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+    .description p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    /* Rainbow cursor trail */
+    .rainbow-trail {
+        position: fixed;
+        pointer-events: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: transparent;
+        border: 2px solid transparent;
+        animation: rainbow 1s infinite linear;
+        z-index: 9999;
+    }
+    @keyframes rainbow {
+        0% {
+            transform: scale(1);
+            border-color: red;
+        }
+        16.7% {
+            border-color: orange;
+        }
+        33.3% {
+            border-color: yellow;
+        }
+        50% {
+            border-color: green;
+        }
+        66.7% {
+            border-color: blue;
+        }
+        83.3% {
+            border-color: indigo;
+        }
+        100% {
+            transform: scale(2);
+            opacity: 0;
+        }
+    }
+</style>
+</head>
+<body>
+
+<h1>hall of Com</h1>
+
+<div class="container">
+    <div class="profile">
+        <img src="https://media.discordapp.net/attachments/1253040520243056670/1254904774772654151/712eafb128bdcd0caeaa4adcd608378a.webp?ex=667c8225&is=667b30a5&hm=864a9f9c12a1c247cedf009bcf3266630f6c07a91a2f70f38722ff426997434b&=&format=webp&width=464&height=400" alt="Profile 1">
+        <div class="description">
+            <h3>kl</h3>
+            <p>Larp it till u make it best advice</p>
+        </div>
+    </div>
+    <div class="profile">
+        <img src="https://media.discordapp.net/attachments/1253040520243056670/1254972225400868994/IMG_2821.jpg?ex=667c1836&is=667ac6b6&hm=dd097dc8eabdf865c006cff7ae8b1901106468deca44a1d3108fff881d7e36da&=&format=webp&width=742&height=910" alt="Profile 2">
+        <div class="description">
+            <h3>zox</h3>
+            <p>get your money up not ur funny</p>
+        </div>
+    </div>
+    </div>
+</div>
+
+<script>
+    // JavaScript for rainbow cursor trail
+    document.addEventListener('mousemove', (event) => {
+        const trail = document.createElement('div');
+        trail.className = 'rainbow-trail';
+        trail.style.left = (event.pageX - 10) + 'px';
+        trail.style.top = (event.pageY - 10) + 'px';
+        document.body.appendChild(trail);
+        setTimeout(() => {
+            trail.remove();
+        }, 1000); // Remove trail after 1 second
+    });
+</script>
+
+
+</body>
+</html>
