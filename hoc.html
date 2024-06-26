@@ -155,14 +155,32 @@
             color: violet;
         }
     }
+    /* Styles for play button */
+    .play-button {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        padding: 10px 20px;
+        background-color: transparent;
+        border: 3px solid transparent;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        animation: rainbow-border 2s infinite linear;
+        z-index: 10000;
+    }
 </style>
 </head>
 <body>
 
 
+<!-- Play button for audio -->
+<button class="play-button" onclick="playAudio()">Play Audio</button>
 
 <!-- Auto-playing background audio -->
-<audio id="backgroundAudio" autoplay loop style="display: none;">
+<audio id="backgroundAudio" loop>
     <source src="main.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
@@ -199,8 +217,15 @@
         }, 1000); // Remove trail after 1 second
     });
 
-    // Auto-play audio
-    document.getElementById('backgroundAudio').play();
+    // Function to play audio
+    function playAudio() {
+        const audio = document.getElementById('backgroundAudio');
+        if (audio.paused) {
+            audio.play();
+        } else {
+            audio.pause();
+        }
+    }
 </script>
 
 </body>
