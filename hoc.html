@@ -27,11 +27,9 @@
         font-family: 'Nosifer', cursive; /* Scary font */
         margin-bottom: 20px;
         z-index: 1;
-        /* Rainbow text effect */
-        background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
-        -webkit-background-clip: text;
-        color: transparent;
-        animation: rainbow-text 2s infinite linear;
+        /* RGB text effect */
+        color: red;
+        animation: rgb-text 2s infinite linear;
     }
     .container {
         display: flex;
@@ -133,13 +131,28 @@
             border-color: violet;
         }
     }
-    /* Keyframes for rainbow text animation */
-    @keyframes rainbow-text {
+    /* Keyframes for RGB text animation */
+    @keyframes rgb-text {
         0% {
-            background-position: 0% 50%;
+            color: red;
+        }
+        16.7% {
+            color: orange;
+        }
+        33.3% {
+            color: yellow;
+        }
+        50% {
+            color: green;
+        }
+        66.7% {
+            color: blue;
+        }
+        83.3% {
+            color: indigo;
         }
         100% {
-            background-position: 100% 50%;
+            color: violet;
         }
     }
 </style>
