@@ -1,232 +1,489 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>fundtak.ing</title>
-<link href="https://fonts.googleapis.com/css2?family=Nosifer&display=swap" rel="stylesheet">
-<style>
-    /* Basic styles for layout */
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #000;
-        color: #fff;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        overflow: hidden;
-    }
-    h1 {
-        font-size: 48px;
-        text-align: center;
-        font-weight: normal;
-        font-family: 'Nosifer', cursive; /* Scary font */
-        margin-bottom: 20px;
-        z-index: 1;
-        /* RGB text effect */
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundtak.ing</title>
+	<meta name="description" content="Here lies the bullied, antisocial & doxed rejects who stepped into the wrong side of the internet.">
+	
+	<meta property="og:locale" content="en_US">
+	<meta property="og:url" content="https://doxbin.org/hoa">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="FundTak.ing - Hall of Autism">
+	<meta property="og:description" content="Here lies the bullied, antisocial & doxed rejects who stepped into the wrong side of the internet.">
+    <link rel="stylesheet" href="index.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="/legacy/dropdown.css" rel="stylesheet">
+<link href="/files/doxbin.css?r=5" rel="stylesheet">
+<script src="/legacy/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/legacy/logout.js"></script>    
+	<style>
+		html{
+			overflow-x: hidden;
+		}
+	input[type=text], select, option{
+		line-height: 1.2;
+		color: white;
+		background: #282828;
+		border: 0;
+		border-radius: 2px;
+		display: inline-block;
+		-webkit-font-smoothing: antialiased;
+		outline: none;
+		padding: 7px 5px;
+		width: 200px;
+	}
+
+	input[type=text]::placeholder{
+		color: rgb(167, 167, 167);
+	}
+	input[type=submit]{
+		line-height: 1.2;
+		color: white;
+		background: #282828;
+		border: 0;
+		border-radius: 2px;
+		display: inline-block;
+		-webkit-font-smoothing: antialiased;
+		outline: none;
+		padding: 7px 5px;
+	}
+	input, select, option{
+		font-size: 100%;
+	}
+	input[type=submit]:hover{
+		color: white;
+		background: #3d3d3d;
+		text-decoration: none;
+	}
+	.center {
+	  text-align: center;
+	}
+    .admin-text{
         color: red;
-        animation: rgb-text 2s infinite linear;
-    }
-    .container {
-        display: flex;
-        justify-content: space-around;
-        max-width: 800px;
-        width: 100%;
-        margin-top: 30px;
-        z-index: 1;
-    }
-    .profile {
-        text-align: center;
-        margin: 20px;
-        background-color: #333;
-        padding: 20px;
-        border-radius: 10px;
-        /* Rainbow border effect */
-        border: 3px solid transparent; /* Start with a transparent border */
-        animation: rainbow-border 2s infinite linear;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
-    }
-    .profile img {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        margin-bottom: 10px;
-        /* Rainbow border effect */
-        border: 3px solid transparent; /* Start with a transparent border */
-        animation: rainbow-border 2s infinite linear;
-    }
-    .description {
-        margin-top: 10px;
-    }
-    .description h3 {
-        font-size: 20px;
-        margin-bottom: 5px;
-    }
-    .description p {
-        font-size: 16px;
-        line-height: 1.5;
-    }
-    /* Rainbow cursor trail */
-    .rainbow-trail {
-        position: fixed;
-        pointer-events: none;
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        background-color: transparent;
-        border: 2px solid transparent;
-        animation: rainbow 1s infinite linear;
-        z-index: 9999;
-    }
-    @keyframes rainbow {
-        0% {
-            transform: scale(1);
-            border-color: red;
-        }
-        16.7% {
-            border-color: orange;
-        }
-        33.3% {
-            border-color: yellow;
-        }
-        50% {
-            border-color: green;
-        }
-        66.7% {
-            border-color: blue;
-        }
-        83.3% {
-            border-color: indigo;
-        }
-        100% {
-            transform: scale(2);
-            opacity: 0;
-        }
-    }
-    /* Keyframes for rainbow border animation */
-    @keyframes rainbow-border {
-        0% {
-            border-color: red;
-        }
-        16.7% {
-            border-color: orange;
-        }
-        33.3% {
-            border-color: yellow;
-        }
-        50% {
-            border-color: green;
-        }
-        66.7% {
-            border-color: blue;
-        }
-        83.3% {
-            border-color: indigo;
-        }
-        100% {
-            border-color: violet;
-        }
-    }
-    /* Keyframes for RGB text animation */
-    @keyframes rgb-text {
-        0% {
-            color: red;
-        }
-        16.7% {
-            color: orange;
-        }
-        33.3% {
-            color: yellow;
-        }
-        50% {
-            color: green;
-        }
-        66.7% {
-            color: blue;
-        }
-        83.3% {
-            color: indigo;
-        }
-        100% {
-            color: violet;
-        }
-    }
-    /* Styles for play button */
-    .play-button {
-        position: fixed;
-        top: 10px;
-        left: 10px;
-        padding: 10px 20px;
-        background-color: transparent;
-        border: 3px solid transparent;
-        border-radius: 5px;
-        color: #fff;
-        font-size: 16px;
         font-weight: bold;
-        cursor: pointer;
-        animation: rainbow-border 2s infinite linear;
-        z-index: 10000;
     }
-</style>
+	.doxbin-text{
+		text-align:center;
+		background-color: inherit;
+		line-height:15px;
+		border: none;
+		color: white;
+		padding-bottom:0;
+		margin-bottom:0;
+	}
+	.hoa-title{
+		margin: 5px 0 0 0;
+		letter-spacing: 2px;
+	}
+	.hoa-container{
+		border: solid 1px rgb(40, 40, 40);
+		background-color: rgb(14, 14, 14);
+		width: 32%;
+		border-radius: 2px;
+		float: left;
+		margin: 10px 5px 10px 5px;
+		position: relative;
+		padding: 15px;
+		-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+		-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+		box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+		height: 460px;
+	}
+	.hoa-container:hover{
+		border: solid 1px rgb(44, 44, 44);
+		background-color: rgb(18, 18, 18);
+	}
+	.hoa-container .hoa-image{
+		text-align: center;
+		max-height: 215px;
+		border-bottom: solid 1px rgb(40, 40, 40);
+	}
+	.hoa-container .hoa-image img{
+		width: 100%;
+		height: 200px;
+		max-width: 200px;
+		max-height: 200px;
+		margin-bottom: 15px;
+	}
+	.hoa-container .hoa-name{
+		padding-top: 10px;
+		text-align: center;
+		color: white;
+		font-size: 20px;
+		font-weight: bold;
+	}
+	.hoa-container .hoa-description{
+		margin-top: 5px;
+		text-align: center;
+		color: rgb(200,200,200);
+		word-wrap: break-word;
+		overflow-y: auto;
+		height: 160px;
+	}
+	@media  only screen and (max-width: 991px) {
+		.hoa-container{
+			width: 48%;
+		}
+	}
+	@media  only screen and (max-width: 575px) {
+		.hoa-container{
+			width: 100%;
+		}
+	}
+	@media  only screen and (max-width: 271px) {
+		.doxbin-text{
+			font-size: 9px;
+			line-height: 10px;
+		}
+		.hoa-title{
+			font-size: 16px;
+			letter-spacing: 2px;
+		}
+	}
+	::-webkit-scrollbar { /*scroll bar*/
+		width: 7px;
+	}
+	
+	/* Track */
+	::-webkit-scrollbar-track {
+		background: #cacaca; 
+	}
+	
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+		background: rgb(110, 110, 110); 
+	}
+	
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		background: rgb(68, 68, 68); 
+	}
+	
+	.rainbow {  
+	   /* Font options */
+	  text-shadow: 2px 2px 4px #000000;
+	  
+	   /* Chrome, Safari, Opera */
+	  -webkit-animation: rainbow 5s infinite; 
+	  
+	  /* Internet Explorer */
+	  -ms-animation: rainbow 5s infinite;
+	  
+	  /* Standar Syntax */
+	  animation: rainbow 5s infinite; 
+	}
+
+	/* Chrome, Safari, Opera */
+	@-webkit-keyframes rainbow{
+	  	0%{color: red;}	
+		17%{color: orange;}
+		33%{color: yellow;}
+		50%{color: green;}
+		67%{color: blue;}
+		84%{color: purple;}
+	 	100%{color: red;}
+	}
+
+	/* Internet Explorer */
+	@-ms-keyframes rainbow{
+	  	0%{color: red;}	
+		17%{color: orange;}
+		33%{color: yellow;}
+		50%{color: green;}
+		67%{color: blue;}
+		84%{color: purple;}
+	 	100%{color: red;}
+	}
+
+	/* Standar Syntax */
+	@keyframes  rainbow{
+	  	0%{color: red;}	
+		17%{color: orange;}
+		33%{color: yellow;}
+		50%{color: green;}
+		67%{color: blue;}
+		84%{color: purple;}
+	 	100%{color: red;}
+	}
+	</style>
+
+	<script>
+	var colour="random";
+		var sparkles=50;
+
+		var x=ox=400;
+		var y=oy=300;
+		var swide=800;
+		var shigh=600;
+		var sleft=sdown=0;
+		var tiny=new Array();
+		var star=new Array();
+		var starv=new Array();
+		var starx=new Array();
+		var stary=new Array();
+		var tinyx=new Array();
+		var tinyy=new Array();
+		var tinyv=new Array();
+
+		window.onload=function() { if (document.getElementById) {
+		  var i, rats, rlef, rdow;
+		  for (var i=0; i<sparkles; i++) {
+		    var rats=createDiv(3, 3);
+		    rats.style.visibility="hidden";
+		    rats.style.zIndex="999";
+		    document.body.appendChild(tiny[i]=rats);
+		    starv[i]=0;
+		    tinyv[i]=0;
+		    var rats=createDiv(5, 5);
+		    rats.style.backgroundColor="transparent";
+		    rats.style.visibility="hidden";
+		    rats.style.zIndex="999";
+		    var rlef=createDiv(1, 5);
+		    var rdow=createDiv(5, 1);
+		    rats.appendChild(rlef);
+		    rats.appendChild(rdow);
+		    rlef.style.top="2px";
+		    rlef.style.left="0px";
+		    rdow.style.top="0px";
+		    rdow.style.left="2px";
+		    document.body.appendChild(star[i]=rats);
+		  }
+		  set_width();
+		  sparkle();
+		}}
+
+		function sparkle() {
+		  var c;
+		  if (Math.abs(x-ox)>1 || Math.abs(y-oy)>1) {
+		    ox=x;
+		    oy=y;
+		    for (c=0; c<sparkles; c++) if (!starv[c]) {
+		      star[c].style.left=(starx[c]=x)+"px";
+		      star[c].style.top=(stary[c]=y+1)+"px";
+		      star[c].style.clip="rect(0px, 5px, 5px, 0px)";
+		      star[c].childNodes[0].style.backgroundColor=star[c].childNodes[1].style.backgroundColor=(colour=="random")?newColour():colour;
+		      star[c].style.visibility="visible";
+		      starv[c]=50;
+		      break;
+		    }
+		  }
+		  for (c=0; c<sparkles; c++) {
+		    if (starv[c]) update_star(c);
+		    if (tinyv[c]) update_tiny(c);
+		  }
+		  setTimeout("sparkle()", 40);
+		}
+
+		function update_star(i) {
+		  if (--starv[i]==25) star[i].style.clip="rect(1px, 4px, 4px, 1px)";
+		  if (starv[i]) {
+		    stary[i]+=1+Math.random()*3;
+		    starx[i]+=(i%5-2)/5;
+		    if (stary[i]<shigh+sdown) {
+		      star[i].style.top=stary[i]+"px";
+		      star[i].style.left=starx[i]+"px";
+		    }
+		    else {
+		      star[i].style.visibility="hidden";
+		      starv[i]=0;
+		      return;
+		    }
+		  }
+		  else {
+		    tinyv[i]=50;
+		    tiny[i].style.top=(tinyy[i]=stary[i])+"px";
+		    tiny[i].style.left=(tinyx[i]=starx[i])+"px";
+		    tiny[i].style.width="2px";
+		    tiny[i].style.height="2px";
+		    tiny[i].style.backgroundColor=star[i].childNodes[0].style.backgroundColor;
+		    star[i].style.visibility="hidden";
+		    tiny[i].style.visibility="visible"
+		  }
+		}
+
+		function update_tiny(i) {
+		  if (--tinyv[i]==25) {
+		    tiny[i].style.width="1px";
+		    tiny[i].style.height="1px";
+		  }
+		  if (tinyv[i]) {
+		    tinyy[i]+=1+Math.random()*3;
+		    tinyx[i]+=(i%5-2)/5;
+		    if (tinyy[i]<shigh+sdown) {
+		      tiny[i].style.top=tinyy[i]+"px";
+		      tiny[i].style.left=tinyx[i]+"px";
+		    }
+		    else {
+		      tiny[i].style.visibility="hidden";
+		      tinyv[i]=0;
+		      return;
+		    }
+		  }
+		  else tiny[i].style.visibility="hidden";
+		}
+
+		document.onmousemove=mouse;
+		function mouse(e) {
+		  if (e) {
+		    y=e.pageY;
+		    x=e.pageX;
+		  }
+		  else {
+		    set_scroll();
+		    y=event.y+sdown;
+		    x=event.x+sleft;
+		  }
+		}
+
+		window.onscroll=set_scroll;
+		function set_scroll() {
+		  if (typeof(self.pageYOffset)=='number') {
+		    sdown=self.pageYOffset;
+		    sleft=self.pageXOffset;
+		  }
+		  else if (document.body && (document.body.scrollTop || document.body.scrollLeft)) {
+		    sdown=document.body.scrollTop;
+		    sleft=document.body.scrollLeft;
+		  }
+		  else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
+		    sleft=document.documentElement.scrollLeft;
+		    sdown=document.documentElement.scrollTop;
+		  }
+		  else {
+		    sdown=0;
+		    sleft=0;
+		  }
+		}
+
+		window.onresize=set_width;
+		function set_width() {
+		  var sw_min=999999;
+		  var sh_min=999999;
+		  if (document.documentElement && document.documentElement.clientWidth) {
+		    if (document.documentElement.clientWidth>0) sw_min=document.documentElement.clientWidth;
+		    if (document.documentElement.clientHeight>0) sh_min=document.documentElement.clientHeight;
+		  }
+		  if (typeof(self.innerWidth)=='number' && self.innerWidth) {
+		    if (self.innerWidth>0 && self.innerWidth<sw_min) sw_min=self.innerWidth;
+		    if (self.innerHeight>0 && self.innerHeight<sh_min) sh_min=self.innerHeight;
+		  }
+		  if (document.body.clientWidth) {
+		    if (document.body.clientWidth>0 && document.body.clientWidth<sw_min) sw_min=document.body.clientWidth;
+		    if (document.body.clientHeight>0 && document.body.clientHeight<sh_min) sh_min=document.body.clientHeight;
+		  }
+		  if (sw_min==999999 || sh_min==999999) {
+		    sw_min=800;
+		    sh_min=600;
+		  }
+		  swide=sw_min;
+		  shigh=sh_min;
+		}
+
+		function createDiv(height, width) {
+		  var div=document.createElement("div");
+		  div.style.position="absolute";
+		  div.style.height=height+"px";
+		  div.style.width=width+"px";
+		  div.style.overflow="hidden";
+		  return (div);
+		}
+
+		function newColour() {
+		  var c=new Array();
+		  c[0]=255;
+		  c[1]=Math.floor(Math.random()*256);
+		  c[2]=Math.floor(Math.random()*(256-c[1]/2));
+		  c.sort(function(){return (0.5 - Math.random());});
+		  return ("rgb("+c[0]+", "+c[1]+", "+c[2]+")");
+		}
+	</script>
 </head>
+
 <body>
-
-
-<!-- Play button for audio -->
-<button class="play-button" onclick="playAudio()">Play Audio</button>
-
-<!-- Auto-playing background audio -->
-<audio id="backgroundAudio" loop>
-    <source src="main.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
-
-<h1>hall of Com</h1>
-
-<div class="container">
-    <div class="profile">
-        <img src="https://media.discordapp.net/attachments/1253040520243056670/1254904774772654151/712eafb128bdcd0caeaa4adcd608378a.webp?ex=667c8225&is=667b30a5&hm=864a9f9c12a1c247cedf009bcf3266630f6c07a91a2f70f38722ff426997434b&=&format=webp&width=464&height=400" alt="Profile 1">
-        <div class="description">
-            <h3>kl</h3>
-            <p>Larp it till u make it best advice</p>
+	<audio id="hoa-audio" src="hoc.mp3" autoplaystyle="display:none"></audio>
+<input type="hidden" name="_token" value="C5aMazUlHfmnhyN70njkHNK1vbdvE0KyCydFfcMW">
+    <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+           
+                    </ul>
+                            </div>
         </div>
     </div>
-    <div class="profile">
-        <img src="https://media.discordapp.net/attachments/1251669648462708777/1255590748657684511/a_d17ca62bb38a2cd03775cc29c48de331.gif?ex=667daf82&is=667c5e02&hm=b4f9efc87be6caa220bd038d2e1d2ec4b0c37cad59184335937cf39c5d5a6401&=&format=webp&width=560&height=560" alt="Profile 2">
-        <div class="description">
-            <h3>zox</h3>
-            <p>get your money up not ur funny</p>
-        </div>
+</nav>
+	<div class="col-md-12" style="margin-top: 60px;">
+		<div class="center">
+			<pre class="doxbin-text">
+  ______               _ _        _      _             
+ |  ____|             | | |      | |    (_)            
+ | |__ _   _ _ __   __| | |_ __ _| | __  _ _ __   __ _ 
+ |  __| | | | '_ \ / _` | __/ _` | |/ / | | '_ \ / _` |
+ | |  | |_| | | | | (_| | || (_| |   < _| | | | | (_| |
+ |_|   \__,_|_| |_|\__,_|\__\__,_|_|\_(_)_|_| |_|\__, |
+                                                  __/ |
+                                                 |___/ 
+</pre>
+			<h4 class="hoa-title rainbow"><b>HALL OF AUTISM</b></h4>
+		</div>
+		<div class="container" style="margin-top:20px;">
+
+		<div class="hoa-container">
+				<div class="hoa-image">
+					<img src="https://media.discordapp.net/attachments/1251669648462708777/1255590748657684511/a_d17ca62bb38a2cd03775cc29c48de331.gif?ex=667daf82&is=667c5e02&hm=b4f9efc87be6caa220bd038d2e1d2ec4b0c37cad59184335937cf39c5d5a6401&=&format=webp&width=560&height=560">
+				</div>
+				<div class="hoa-name rainbow">
+					kl
+				</div>
+				<div class="hoa-description">
+					<b>kl</b><br>
+					cutie idk what to add here<br>
+					<a>this dont go no where</a>
+				</div>
+			</div>
+		</div>
     </div>
-</div>
+	<script>
+		(function () {
+			const hoaAudio = document.getElementById('hoa-audio');
 
-<script>
-    // JavaScript for rainbow cursor trail
-    document.addEventListener('mousemove', (event) => {
-        const trail = document.createElement('div');
-        trail.className = 'rainbow-trail';
-        trail.style.left = (event.pageX - 10) + 'px';
-        trail.style.top = (event.pageY - 10) + 'px';
-        document.body.appendChild(trail);
-        setTimeout(() => {
-            trail.remove();
-        }, 1000); // Remove trail after 1 second
-    });
+			function catchHandler() {
+				// Audio playback was blocked.
+				// We will register input listeners to wait until the user has interacted with the page before playing again.
 
-    // Function to play audio
-    function playAudio() {
-        const audio = document.getElementById('backgroundAudio');
-        if (audio.paused) {
-            audio.play();
-        } else {
-            audio.pause();
-        }
-    }
-</script>
+				let inputListener;
+				inputListener = function () {
+					hoaAudio.play();
+					document.removeEventListener('mousedown', inputListener);
+					document.removeEventListener('keydown', inputListener);
+				};
 
+				document.addEventListener('mousedown', inputListener);
+				document.addEventListener('keydown', inputListener);
+			}
+
+			if (hoaAudio.readyState > 1) {
+				// The audio is ready to be played.
+				hoaAudio.play().catch(catchHandler);
+			} else {
+				// The audio cannot be played yet, wait until it is loaded.
+				hoaAudio.addEventListener('canplay', function () {
+					hoaAudio.play().catch(catchHandler);
+				});
+			}
+		})();
+	</script>
 </body>
 </html>
