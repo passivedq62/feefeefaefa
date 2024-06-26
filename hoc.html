@@ -18,6 +18,7 @@
         align-items: center;
         justify-content: center;
         height: 100vh;
+        overflow: hidden;
     }
     h1 {
         font-size: 48px;
@@ -25,6 +26,7 @@
         font-weight: normal;
         font-family: 'Nosifer', cursive; /* Scary font */
         margin-bottom: 20px;
+        z-index: 1;
     }
     .container {
         display: flex;
@@ -32,6 +34,7 @@
         max-width: 800px;
         width: 100%;
         margin-top: 30px;
+        z-index: 1;
     }
     .profile {
         text-align: center;
@@ -96,9 +99,31 @@
             opacity: 0;
         }
     }
+    /* Styles for background video */
+    .video-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
 </style>
 </head>
 <body>
+
+<!-- Background video -->
+<video class="video-background" autoplay loop muted>
+    <source src="main.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<!-- Auto-playing background audio -->
+<audio id="backgroundAudio" autoplay loop style="display: none;">
+    <source src="main.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
 
 <h1>hall of Com</h1>
 
@@ -117,16 +142,7 @@
             <p>get your money up not ur funny</p>
         </div>
     </div>
-    </div>
 </div>
-    <!-- Play button for audio -->
-    <a href="#" class="play-button" onclick="playAudio()">Play Audio</a>
-
-    <!-- Audio element -->
-    <audio id="backgroundAudio" loop style="display: none;">
-        <source src="main.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
 
 <script>
     // JavaScript for rainbow cursor trail
@@ -141,7 +157,6 @@
         }, 1000); // Remove trail after 1 second
     });
 </script>
-
 
 </body>
 </html>
